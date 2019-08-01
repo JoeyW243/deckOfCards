@@ -1,11 +1,11 @@
 #ifndef DECKTYPE_H
 #define DECKTYPE_H
 #include "CARD.h"
-class deckType
+class DeckType
 {
 public:
-	deckType();
-	CARD getCard();// Gets random, unpicked card
+	DeckType();
+	CARD drawCard();// Gets random, unpicked card
 	void shuffle();// Resets the picked cards
 	int cardsTaken = 0; //Number of cards taken
 

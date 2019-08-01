@@ -5,14 +5,15 @@
 
 using namespace std;
 
-deckType::deckType()
+DeckType::DeckType()
 {
 }
 
-CARD deckType::getCard() // Gets random, unpicked card
+CARD DeckType::drawCard() // Gets random, unpicked card
 {
 	CARD card;
 	int num = getNum();
+	card.id = num;
 	if (num < 14) {
 		card.suit = SPADES;
 		card.num = num;
@@ -32,7 +33,7 @@ CARD deckType::getCard() // Gets random, unpicked card
 	return card;
 }
 
-void deckType::shuffle() // Resets picked cards
+void DeckType::shuffle() // Resets picked cards    ||    WARNING: CANNOT SHUFFLE TWICE IN THE SAME INSTANT
 {
 	for (int i = 0; i < 52; i++) {
 		cards[i] = 0;
@@ -40,7 +41,7 @@ void deckType::shuffle() // Resets picked cards
 	cardsTaken = 0;
 }
 
-int deckType::getNum()// Gets random, unpicked number from 1-52
+int DeckType::getNum()// Gets random, unpicked number from 1-52
 {
 	srand(time(0));
 	int num = rand() % 52 + 1;
@@ -50,7 +51,7 @@ int deckType::getNum()// Gets random, unpicked number from 1-52
 	return num;
 }
 
-bool deckType::inList(int list[52], int num, int taken)  // Tests if a number is in a 52 number list
+bool DeckType::inList(int list[52], int num, int taken)  // Tests if a number is in a 52 number list
 {
 	for (int i = 0; i < taken; i++) {
 		if (num == list[i])
