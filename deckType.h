@@ -6,7 +6,12 @@ class DeckType
 public:
 	DeckType();
 	CARD drawCard();// Gets random, unpicked card
+	CARD drawCardTop();// Gets card from top
+	CARD drawCardBottom();
 	void shuffle();// Resets the picked cards
+	void placeTop(); //Place a card at the top
+	void placeBottom(); //Place a card at the bottom
+	void placeRandom(); //Place a card randomly
 	int cardsTaken = 0; //Number of cards taken
 
 private:
