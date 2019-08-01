@@ -20,16 +20,21 @@ struct CardNode {
 class Hand
 {
 public:
+	//Constructors
 	Hand();
 	Hand(CARD firstCard);
 	Hand(CardNode firstCard);
+	~Hand();
+
+	//Methods
+	void sortHand();
+	void addCard(CARD newCard);
+	
 
 private:
-	CardNode first;
+	CardNode *first;
 
 };
-
-CARD *sortHand(CARD *unsortedHand, int size);
 
 /* * /
 hands bestHand(CARD hand[], int size) {
