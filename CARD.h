@@ -2,13 +2,12 @@
 #define CARD_H
 
 enum suitType { SPADES, HEARTS, CLUBS, DIAMONDS };
-enum hands {RF, SF, FoK, FH, F, S, ToK, P, HC}; //Royal Flush, Straight Flush, 4 of a Kind, Full House, Flush, Staight, 3 of a Kind, Pair, High Card.
+enum hands {RF, SF, FoK, FH, F, S, ToK, TP, P, HC}; //Royal Flush, Straight Flush, 4 of a Kind, Full House, Flush, Staight, 3 of a Kind,Two Pair, Pair, High Card.
 
 struct CARD {
 	int id = 0;
 	int num = 0;
 	suitType suit;
-	hands *plays; //Maybe delete pointer later? I dunno
 };
 
 struct CardNode {
@@ -27,28 +26,21 @@ public:
 	~Hand();
 
 	//Methods
-	void sortHand();
-	void addCard(CARD newCard);
+
+	void sortHand(); //Sorts the hand for reasons
+	void addCard(CARD newCard); //Adds a card to the front of the hand
+	void removeCard(int index);
+	void replaceCard(CARD newCard, int index); //replaces a desired card
+	CARD getCard(int index); //Returns a desired card
+	hands bestHand(); //Returns the best possible hand
+	CARD highCard();
 	
 
 private:
-	CardNode *first;
+	CardNode *first; //First node of a linked list
+	int handSize = 0; //Size of the hand ***************
 
 };
 
-/* * /
-hands bestHand(CARD hand[], int size) {
-	CARD currentCard;
-	bool flag = true;
-	for (int i = 0; i < size - 1; i++) {
-		currentCard = hand[i];
-		if (hand[i].suit != hand[i + 1].suit) {
-			flag = false;
-		}
-	}
-	if (flag = true) {
-
-	}
-}
-*/
 #endif // !CARD_H
+
