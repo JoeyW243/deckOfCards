@@ -6,6 +6,7 @@ class DeckType
 public:
 	DeckType();
 	CARD drawCard();// Gets random, unpicked card
+
 	//CARD drawCardTop();// Gets card from top
 	//CARD drawCardBottom();
 	void shuffle();// Resets the picked cards
