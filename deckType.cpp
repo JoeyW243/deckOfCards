@@ -12,8 +12,9 @@ DeckType::DeckType()
 CARD DeckType::drawCard() // Gets random, unpicked card
 {
 	CARD card;
-	int num = getNum();
+	int num = getNum(); //Get random unpicked number 1-52
 	card.id = num;
+	//Give that number personality
 	if (num < 14) {
 		card.suit = SPADES;
 		card.num = num;
@@ -45,9 +46,9 @@ int DeckType::getNum()// Gets random, unpicked number from 1-52
 {
 	srand(time(0));
 	int num = rand() % 52 + 1;
-	while (inList(cards, num, cardsTaken))
+	while (inList(cards, num, cardsTaken))//This will be an infinite loop if all cards are taken, should fix
 		num = rand() % 52 + 1;
-	cards[cardsTaken++] = num;
+	cards[cardsTaken++] = num; // Adds the taken card to the taken cards array
 	return num;
 }
 
@@ -56,7 +57,7 @@ bool DeckType::inList(int list[52], int num, int taken)  // Tests if a number is
 	for (int i = 0; i < taken; i++) {
 		if (num == list[i])
 			return true;
-		if (list[i] == 0)
+		if (list[i] == 0) //Gone through all cards in list
 			return false;
 	}
 	return false;
