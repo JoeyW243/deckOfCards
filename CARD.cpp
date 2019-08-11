@@ -193,7 +193,7 @@ hands Hand::bestHand()
 		}
 		//Check for straight
 		if (i != handSize - 1 && sequenced) {
-			if (hand[i].id != hand[i].id + 1) {
+			if (hand[i].id != hand[i + 1].id - 1) {
 				sequenced = false;
 			}
 		}
@@ -211,6 +211,7 @@ hands Hand::bestHand()
 
 	//Check for n of a kind
 	int ranks = 1; //duplicate numbers, always 1 of itself
+	int firstPair = 0;
 	threeKind = false;
 	twoPair = false;
 	pair = false;
@@ -228,15 +229,20 @@ hands Hand::bestHand()
 		case 4:
 			//delete hand;
 			return FoK;
+			break;
 		case 3:
 			threeKind = true;
+			break;
 		case 2:
-			if (pair) {
+
+			if (pair && hand[i].num != firstPair) {
 				twoPair = true;
 			}
 			else {
 				pair = true;
+				firstPair = hand[i].num;
 			}
+			break;
 		default:
 			break;
 		}

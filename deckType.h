@@ -6,9 +6,10 @@ class DeckType
 public:
 	DeckType();
 	CARD drawCard();// Gets random, unpicked card
-
 	//CARD drawCardTop();// Gets card from top
 	//CARD drawCardBottom();
+	CARD completeCard(int id); //Return a card datatype from a given id
+	CARD completeCard(int num, suitType suit); //Return a card datatype from a given number and suit
 	void shuffle();// Resets the picked cards
 	//void placeTop(); //Place a card at the top
 	//void placeBottom(); //Place a card at the bottom

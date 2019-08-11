@@ -26,7 +26,6 @@ public:
 	~Hand();
 
 	//Methods
-
 	void sortHand(); //Sorts the hand for reasons
 	void addCard(CARD newCard); //Adds a card to the front of the hand
 	void removeCard(int index);
@@ -43,4 +42,3 @@ private:
 };
 
 #endif // !CARD_H
-
